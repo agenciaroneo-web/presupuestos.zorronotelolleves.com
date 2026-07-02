@@ -983,6 +983,47 @@ label[for="acc-video"] {
   font-weight: 600;
 }
 .btn-turnos:active { background: #F7F5F0; }
+
+/* ÍCONO COMPARTIR DISCRETO */
+.share-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.share-btn:active { opacity: 0.9; background: rgba(0,0,0,0.12); }
+.share-btn svg { width: 15px; height: 15px; }
+.precio-hero { position: relative; }
+.share-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1A1A18;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.share-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -1018,7 +1059,7 @@ label[for="acc-video"] {
     <button class="event-btn" onclick="showScreen('bautismo')">
       <div class="event-icon icon-bautismo">✨</div>
       <div class="event-info">
-        <div class="event-name">Bautismo / Comunión</div>
+        <div class="event-name">Bautismo, Comunión y Evento de Adultos</div>
         <div class="event-sub">Ocasiones especiales · 2hs 30m</div>
       </div>
       <div class="event-arrow">›</div>
@@ -1080,6 +1121,9 @@ label[for="acc-video"] {
   <div class="resultado" id="res-cumple">
     <div class="precio-hero">
       <div class="precio-hero-label">Precio total abonando en efectivo</div>
+      <button type="button" class="share-btn" onclick="compartirPresup('c')" title="Copiar link del presupuesto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+      </button>
       <div class="precio-antes" id="rcc-antes" style="display:none;"></div>
       <div class="precio-hero-num" style="color:var(--accent)">
         <span class="precio-hero-moneda">$</span><span id="rcc-total"></span>
@@ -1501,6 +1545,9 @@ label[for="acc-video"] {
   <div class="resultado" id="res-9a12">
     <div class="precio-hero">
       <div class="precio-hero-label">Precio total abonando en efectivo</div>
+      <button type="button" class="share-btn" onclick="compartirPresup('9')" title="Copiar link del presupuesto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+      </button>
       <div class="precio-antes" id="r9-antes" style="display:none;"></div>
       <div class="precio-hero-num" style="color:var(--accent)">
         <span class="precio-hero-moneda">$</span><span id="r9-total"></span>
@@ -1871,7 +1918,7 @@ label[for="acc-video"] {
 <div id="screen-bautismo" class="screen-ppto ev-bautismo">
   <button class="back-btn" onclick="goBack()">← Volver</button>
   <div class="ppto-header">
-    <p class="ppto-eyebrow" style="color:#9A7B2E">✨ Bautismo / Comunión</p>
+    <p class="ppto-eyebrow" style="color:#9A7B2E">✨ Bautismo, Comunión y Evento de Adultos</p>
     <h1 class="ppto-title">¿Cuánto sale<br>el evento?</h1>
   </div>
 
@@ -1902,6 +1949,9 @@ label[for="acc-video"] {
   <div class="resultado" id="res-bautismo">
     <div class="precio-hero">
       <div class="precio-hero-label">Precio total abonando en efectivo</div>
+      <button type="button" class="share-btn" onclick="compartirPresup('b')" title="Copiar link del presupuesto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+      </button>
       <div class="precio-antes" id="rb-antes" style="display:none;"></div>
       <div class="precio-hero-num" style="color:var(--accent)">
         <span class="precio-hero-moneda">$</span><span id="rb-total"></span>
@@ -1967,6 +2017,28 @@ label[for="acc-video"] {
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-maqglit-b" data-precio="92000" data-grupo="maq" onchange="excluirB(this);calcAdicB()">
           <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje')">ⓘ ver más</button></div><div class="adic-item-precio">$92.000</div></div>
+        </div>
+
+        <div class="adic-cat">Menús para adultos (opcional)</div>
+        <div class="adic-item">
+          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
+          <div class="adic-item-info"><div class="adic-item-nombre">🍽 Menú de Tarde Clásico <button type="button" class="ver-mas" onclick="abrirModal('menu_clasico')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
+        </div>
+        <div class="adic-item">
+          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
+          <div class="adic-item-info"><div class="adic-item-nombre">🥗 Menú de Tarde Veggie <button type="button" class="ver-mas" onclick="abrirModal('menu_veggie')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
+        </div>
+        <div class="adic-item">
+          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
+          <div class="adic-item-info"><div class="adic-item-nombre">🍸 Lunch Gourmet Clásico <button type="button" class="ver-mas" onclick="abrirModal('lunch_clasico')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
+        </div>
+        <div class="adic-item">
+          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
+          <div class="adic-item-info"><div class="adic-item-nombre">🍹 Lunch Gourmet Ejecutivo <button type="button" class="ver-mas" onclick="abrirModal('lunch_ejecutivo')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
+        </div>
+        <div class="adic-item">
+          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
+          <div class="adic-item-info"><div class="adic-item-nombre">🥂 Lunch Gourmet Premium <button type="button" class="ver-mas" onclick="abrirModal('lunch_premium')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
         </div>
 
         <div class="adic-cat">Snacks y bebidas</div>
@@ -2081,6 +2153,18 @@ label[for="acc-video"] {
     </div>
   </div>
   <div class="incluye-card">
+    <input class="inc-toggle" type="checkbox" id="inc-base-b">
+    <label class="inc-label" for="inc-base-b">La base incluye <span class="inc-chevron">▼</span></label>
+    <div class="inc-body">
+      <div class="inc-grid">
+        <div class="inc-item">👶 10 niños</div>
+        <div class="inc-item">🧑 40 adultos</div>
+        <div class="inc-item">🧑‍🤝‍🧑 1 coordinador/a</div>
+        <div class="inc-item">🍽 2 camareros/as</div>
+      </div>
+    </div>
+  </div>
+  <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-dur-b">
     <label class="inc-label" for="inc-dur-b">Duración del evento <span class="inc-chevron">▼</span></label>
     <div class="inc-body">
@@ -2114,15 +2198,12 @@ label[for="acc-video"] {
     <label class="inc-label" for="inc-com-b">Consumición incluida <span class="inc-chevron">▼</span></label>
     <div class="inc-body">
       <div class="inc-grid">
-        <div class="inc-divider">Niños</div>
-        <div class="inc-item" id="com-almuerzo-b">🍕 Pizza + papas bastón horneadas</div>
-        <div class="inc-item">🍬 Mini arrocitas + alfajorcitos de maicena</div>
-        <div class="inc-item">💧 Agua saborizada + agua natural</div>
-        <div class="inc-divider">Adultos</div>
-        <div class="inc-item">☕ Café, té y mate</div>
-        <div class="inc-item">❄ Refrigeración + calentar comida</div>
+        <div class="inc-divider">Para adultos</div>
+        <div class="inc-item">☕ Café, té y mate durante todo el evento</div>
+        <div class="inc-item">❄ Refrigeración de bebidas + calentar comida</div>
         <div class="inc-item">👨‍🍳 Servicio de camareros/as</div>
-        <div class="inc-item" style="grid-column:1/-1">➕ Bebida libre (adicional)</div>
+        <div class="inc-item" style="grid-column:1/-1">➕ Bebida libre para adultos (adicional opcional)</div>
+        <div class="inc-item" style="grid-column:1/-1">🍽 Menús opcionales para contratar (ver en adicionales)</div>
       </div>
     </div>
   </div>
@@ -2297,6 +2378,9 @@ label[for="acc-video"] {
   <div class="resultado visible" id="res-egresa" style="margin-top:20px">
     <div class="precio-hero">
       <div class="precio-hero-label">Precio total estimado</div>
+      <button type="button" class="share-btn" onclick="compartirPresup('e')" title="Copiar link del presupuesto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+      </button>
       <div class="precio-hero-num" style="color:#2E8B3A">
         <span class="precio-hero-moneda">$</span><span id="re-total"></span>
       </div>
@@ -2705,7 +2789,7 @@ label[for="acc-video"] {
 // ── PRECIOS ──
 var PRECIOS_CUMPLE = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
 var PRECIOS_9A12   = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
-var PRECIOS_BAUTISMO = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
+var PRECIOS_BAUTISMO = {"julio":{"label":"Julio 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"agosto":{"label":"Agosto 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}};
 var PRECIO_EGRESA_POR_EGRESADITO = 60000;
 
 function fmt(n) { return n.toLocaleString("es-AR"); }
@@ -2919,6 +3003,36 @@ var MODALES = {
     texto: "<p>Espectáculo unipersonal infantil. Corchito, un joven aspirante a marinero, abre un misterioso libro pop-up que lo transporta a un mar de aventuras, donde conoce personajes que revelan el tesoro perdido del pirata Fanfarrón.</p><p>Se recrea con diversos tipos de títeres, objetos escénicos, canciones, narración y un libro pop-up de gran formato. Todo de creación propia y artesanal.</p>",
     nota: "Público recomendado: 3 a 7 años. Duración 30-35 minutos. Valor sujeto al presupuesto del mes del festejo. Cancelaciones con al menos 10 días de anticipación; posterior a ese plazo se cobra el 50% del valor actual del servicio."
   },
+  menu_clasico: {
+    titulo: "Menu de Tarde Clasico",
+    precio: "A consultar",
+    texto: "<p>Triangulitos jamon crudo/rucula/tomates/parmesano</p><p>Pletzalej pastron/pepinos agridulces</p><p>Chips jamon/queso/tomate</p><p>Rosetitas salame y queso</p><p>Canastitas cebolla y mozzarella</p><p>Alfajorcitos de maicena</p><p>Budin carrot/chocolate/citricos</p><p>Torta a eleccion (lemon pie/brownie alpino/crumble/cheesecake)</p>",
+    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
+  },
+  menu_veggie: {
+    titulo: "Menu de Tarde Veggie",
+    precio: "A consultar",
+    texto: "<p>Triangulitos queso/rucula/tomates/parmesano</p><p>Pletzalej queso/palta/tomates</p><p>Chips hummus/garbanzos/tofu</p><p>Mini burger veggies</p><p>Canastitas capresse</p><p>Alfajorcitos de maicena</p><p>Budin carrot/chocolate/citricos</p><p>Torta a eleccion (lemon pie/brownie alpino/crumble/cheesecake)</p>",
+    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
+  },
+  lunch_clasico: {
+    titulo: "Lunch Gourmet Clasico",
+    precio: "A consultar",
+    texto: "<p>Mini burger cheddar/panceta/cebollas caramelizadas</p><p>Empanaditas copetin de carne</p><p>Pancitos de semillas, salmon ahumado/rucula/tomates asados</p><p>Chips jamon crudo/rucula/tomates/parmesano</p><p>Focaccia con boconccinos/tomates y cebollas caramelizadas</p><p>Figacitas de manteca con pollo a la mostaza</p><p>Pinchos capresse</p>",
+    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
+  },
+  lunch_ejecutivo: {
+    titulo: "Lunch Gourmet Ejecutivo",
+    precio: "A consultar",
+    texto: "<p>Sambusek</p><p>Bombita capresse</p><p>Empanaditas de carne</p><p>Tortillita de papa con cebollita caramelizada y ciboulette</p><p>Pizzas gourmet (napo/muzza/fuga/malbec)</p><p><em>10 piezas por persona</em></p>",
+    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
+  },
+  lunch_premium: {
+    titulo: "Lunch Gourmet Premium",
+    precio: "A consultar",
+    texto: "<p>Pinchos de pollo crispy</p><p>Sorrentinos fritos de jamon, queso y ciboulette</p><p>Sambusek</p><p>Muffin souffle de choclo</p><p>Gyosas de cerdo y nira con reduccion de salsa de soja</p><p>Alemancito de pollo alioli</p><p><em>10 piezas por persona</em></p>",
+    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
+  },
   turnos: {
     titulo: "🕐 Turnos y horarios",
     precio: "Cada tarifa agrupa varios días y horarios",
@@ -3053,7 +3167,7 @@ function calcAdicB() {
   document.getElementById("rb-total").textContent = fmt(subtotal > 0 ? totalConAdic : base);
   var p = PRECIOS_BAUTISMO[mes.value];
   var diaLabel = dia.value === "fds" ? "Viernes tarde + Sab/Dom/Feriado 12:30 o 16hs" : dia.value === "semana_t" ? "Lunes a Jueves tarde + Domingos 19:30hs" : dia.value === "manana" ? "Turno manana 9:30 (desayuno)" : "Promo mediodia Lun a Vie";
-  var msg = "Quiero reservar un Bautismo/Comunion para " + p.label + " - " + diaLabel + "\n";
+  var msg = "Quiero reservar un Bautismo/Comunion/Evento de Adultos para " + p.label + " - " + diaLabel + "\n";
   msg += "Precio base: $" + fmt(base);
   if (det.lineas.length > 0) {
     msg += "\n\nAdicionales:\n" + det.lineas.join("\n");
@@ -3156,6 +3270,145 @@ function detalleAdic(suf, qtyObj, preciosObj) {
   }
   return { lineas: lineas, subtotal: subtotal };
 }
+
+
+// ═══ COMPARTIR PRESUPUESTO ═══
+function compartirPresup(suf) {
+  var params = new URLSearchParams();
+  var nombreEvento = { c: "cumple", "9": "9a12", b: "bautismo", e: "egresa" };
+  var ev = nombreEvento[suf];
+  params.set("ev", ev);
+  
+  if (suf === "e") {
+    // Egresaditos: cantidad + día
+    params.set("cant", cantEgresa);
+    var diaE = document.querySelector("input[name='dia-egresa']:checked");
+    if (diaE) params.set("dia", diaE.value);
+  } else {
+    var mesNames = { c: "mes-cumple", "9": "mes-9a12", b: "mes-bautismo" };
+    var diaNames = { c: "dia-cumple", "9": "dia-9a12", b: "dia-bautismo" };
+    var mes = document.querySelector("input[name='" + mesNames[suf] + "']:checked");
+    var dia = document.querySelector("input[name='" + diaNames[suf] + "']:checked");
+    if (mes) params.set("mes", mes.value);
+    if (dia) params.set("dia", dia.value);
+  }
+  
+  // Adicionales: checkboxes marcados (por índice) y cantidades
+  var checks = document.querySelectorAll("#adic-main-" + suf + " ~ .adic-body .adic-check:checked, #adic-main-" + suf + " ~ .adic-body .globo-check:checked");
+  var marcados = [];
+  var todos = document.querySelectorAll("#adic-main-" + suf + " ~ .adic-body .adic-check, #adic-main-" + suf + " ~ .adic-body .globo-check");
+  todos.forEach(function(c, i) { if (c.checked) marcados.push(i); });
+  if (marcados.length > 0) params.set("ad", marcados.join(","));
+  
+  // Cantidades
+  var qtyObj = { c: qtyCumple, "9": qty9, b: qtyB, e: qtyE }[suf];
+  var qtyStr = [];
+  for (var tipo in qtyObj) { if (qtyObj[tipo] > 0) qtyStr.push(tipo + ":" + qtyObj[tipo]); }
+  if (qtyStr.length > 0) params.set("q", qtyStr.join(","));
+  
+  var url = window.location.origin + window.location.pathname + "?" + params.toString();
+  
+  // Copiar al portapapeles
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() { mostrarToast("Link copiado ✓"); }, function() { promptCopy(url); });
+  } else {
+    promptCopy(url);
+  }
+}
+
+function promptCopy(url) {
+  var ta = document.createElement("textarea");
+  ta.value = url;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); mostrarToast("Link copiado ✓"); }
+  catch (e) { mostrarToast("Copiá el link manualmente"); }
+  document.body.removeChild(ta);
+}
+
+function mostrarToast(msg) {
+  var toast = document.getElementById("share-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "share-toast";
+    toast.className = "share-toast";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add("visible");
+  setTimeout(function() { toast.classList.remove("visible"); }, 2200);
+}
+
+// ═══ CARGAR PRESUPUESTO DESDE LINK ═══
+function cargarDesdeLink() {
+  var params = new URLSearchParams(window.location.search);
+  var ev = params.get("ev");
+  if (!ev) return;
+  
+  var sufMap = { cumple: "c", "9a12": "9", bautismo: "b", egresa: "e" };
+  var suf = sufMap[ev];
+  if (!suf) return;
+  
+  // Ir a la pantalla del evento
+  if (typeof showScreen === "function") showScreen(ev);
+  
+  setTimeout(function() {
+    if (suf === "e") {
+      var cant = params.get("cant");
+      if (cant) { cantEgresa = parseInt(cant); document.getElementById("cant-egresa").textContent = cantEgresa; }
+      var dia = params.get("dia");
+      if (dia) { var r = document.querySelector("input[name='dia-egresa'][value='" + dia + "']"); if (r) { r.checked = true; radioPrev["dia-egresa"] = r; } }
+    } else {
+      var mesNames = { c: "mes-cumple", "9": "mes-9a12", b: "mes-bautismo" };
+      var diaNames = { c: "dia-cumple", "9": "dia-9a12", b: "dia-bautismo" };
+      var mes = params.get("mes");
+      var dia = params.get("dia");
+      if (mes) { var rm = document.querySelector("input[name='" + mesNames[suf] + "'][value='" + mes + "']"); if (rm) { rm.checked = true; radioPrev[mesNames[suf]] = rm; } }
+      if (dia) { var rd = document.querySelector("input[name='" + diaNames[suf] + "'][value='" + dia + "']"); if (rd) { rd.checked = true; radioPrev[diaNames[suf]] = rd; } }
+    }
+    
+    // Cantidades
+    var q = params.get("q");
+    var qtyObj = { c: qtyCumple, "9": qty9, b: qtyB, e: qtyE }[suf];
+    if (q) {
+      q.split(",").forEach(function(par) {
+        var kv = par.split(":");
+        if (qtyObj && kv.length === 2) {
+          qtyObj[kv[0]] = parseInt(kv[1]);
+          var el = document.getElementById("qty-" + kv[0] + "-" + suf);
+          if (el) el.textContent = kv[1];
+        }
+      });
+    }
+    
+    // Adicionales checkboxes
+    var ad = params.get("ad");
+    if (ad) {
+      var todos = document.querySelectorAll("#adic-main-" + suf + " ~ .adic-body .adic-check, #adic-main-" + suf + " ~ .adic-body .globo-check");
+      ad.split(",").forEach(function(i) {
+        var idx = parseInt(i);
+        if (todos[idx]) {
+          todos[idx].checked = true;
+          // Si es un show, mostrar globología
+          if (todos[idx].getAttribute("data-grupo")) {
+            var fn = { c: "excluirC", "9": "excluir9", b: "excluirB", e: "excluirE" }[suf];
+            if (typeof window[fn] === "function") window[fn](todos[idx]);
+          }
+        }
+      });
+    }
+    
+    // Recalcular
+    var calcFns = { c: "calcCumple", "9": "calc9a12", b: "calcBautismo", e: "calcEgresa" };
+    if (typeof window[calcFns[suf]] === "function") window[calcFns[suf]]();
+    // Abrir el acordeón de adicionales si hay adicionales
+    if (ad || q) { var accMain = document.getElementById("adic-main-" + suf); if (accMain) accMain.checked = true; }
+  }, 100);
+}
+// Ejecutar al cargar
+window.addEventListener("DOMContentLoaded", cargarDesdeLink);
 
 </script>
 
