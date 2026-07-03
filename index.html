@@ -1024,6 +1024,29 @@ label[for="acc-video"] {
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .share-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ÍTEM OPCIONAL (no incluido) */
+.inc-item.inc-opcional {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  background: #FFF4E8;
+  border: 1px dashed #fa6f2c;
+}
+.tag-opcional {
+  display: inline-block;
+  background: #fa6f2c;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 </style>
 </head>
 <body>
@@ -1327,7 +1350,7 @@ label[for="acc-video"] {
         <div class="inc-item">🎁 Souvenirs para los invitados</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
         <div class="inc-item">📽 Proyector</div>
-        <div class="inc-item">🎮 Juegos de mesa para adultos</div>
+        <div class="inc-item">♟️ Juegos de mesa para adultos</div>
         <div class="inc-item">🎪 Mini disco con luces</div>
         <div class="inc-item">🏥 Servicio de emergencias médicas</div>
         <div class="inc-item">📸 Material fotográfico y video del evento</div>
@@ -1348,6 +1371,7 @@ label[for="acc-video"] {
         <div class="inc-item">❄ Refrigeración de bebidas + calentar comida</div>
         <div class="inc-item">👨‍🍳 Servicio de camareros/as</div>
         <div class="inc-item" style="grid-column:1/-1">➕ Bebida libre para adultos (adicional opcional)</div>
+        <div class="inc-item" style="grid-column:1/-1">💧 Agua purificada natural en jarras</div>
       </div>
     </div>
   </div>
@@ -1747,7 +1771,7 @@ label[for="acc-video"] {
         <div class="inc-item">🎴 Cartas coleccionables del Bosque</div>
         <div class="inc-item">🎁 Souvenirs</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
-        <div class="inc-item">🎮 Juegos de mesa</div>
+        <div class="inc-item">♟️ Juegos de mesa</div>
         <div class="inc-item">🎪 Mini disco</div>
         <div class="inc-item">📽 Proyector</div>
         <div class="inc-item">🏥 Servicio de emergencias médicas</div>
@@ -1769,6 +1793,7 @@ label[for="acc-video"] {
         <div class="inc-item">❄ Refrigeración + calentar comida</div>
         <div class="inc-item">👨‍🍳 Servicio de camareros/as</div>
         <div class="inc-item" style="grid-column:1/-1">➕ Bebida libre (adicional)</div>
+        <div class="inc-item" style="grid-column:1/-1">💧 Agua purificada natural en jarras</div>
       </div>
     </div>
   </div>
@@ -2019,28 +2044,6 @@ label[for="acc-video"] {
           <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje')">ⓘ ver más</button></div><div class="adic-item-precio">$92.000</div></div>
         </div>
 
-        <div class="adic-cat">Menús para adultos (opcional)</div>
-        <div class="adic-item">
-          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🍽 Menú de Tarde Clásico <button type="button" class="ver-mas" onclick="abrirModal('menu_clasico')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
-        </div>
-        <div class="adic-item">
-          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🥗 Menú de Tarde Veggie <button type="button" class="ver-mas" onclick="abrirModal('menu_veggie')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
-        </div>
-        <div class="adic-item">
-          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🍸 Lunch Gourmet Clásico <button type="button" class="ver-mas" onclick="abrirModal('lunch_clasico')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
-        </div>
-        <div class="adic-item">
-          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🍹 Lunch Gourmet Ejecutivo <button type="button" class="ver-mas" onclick="abrirModal('lunch_ejecutivo')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
-        </div>
-        <div class="adic-item">
-          <input type="checkbox" class="adic-check" data-precio="0" onchange="calcAdicB()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🥂 Lunch Gourmet Premium <button type="button" class="ver-mas" onclick="abrirModal('lunch_premium')">ⓘ ver más</button></div><div class="adic-item-precio consultar">A consultar</div></div>
-        </div>
-
         <div class="adic-cat">Snacks y bebidas</div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" data-precio="155000" onchange="calcAdicB()">
@@ -2184,7 +2187,7 @@ label[for="acc-video"] {
         <div class="inc-item">🎴 Cartas coleccionables del Bosque</div>
         <div class="inc-item">🎁 Souvenirs</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
-        <div class="inc-item">🎮 Juegos de mesa para adultos</div>
+        <div class="inc-item">♟️ Juegos de mesa para adultos</div>
         <div class="inc-item">📽 Proyector</div>
         <div class="inc-item">🎪 Mini disco</div>
         <div class="inc-item">🏥 Servicio de emergencias médicas</div>
@@ -2201,8 +2204,9 @@ label[for="acc-video"] {
         <div class="inc-item">☕ Café, té y mate durante todo el evento</div>
         <div class="inc-item">❄ Refrigeración de bebidas + calentar comida</div>
         <div class="inc-item">👨‍🍳 Servicio de camareros/as</div>
-        <div class="inc-item" style="grid-column:1/-1">➕ Bebida libre para adultos (adicional opcional)</div>
-        <div class="inc-item" style="grid-column:1/-1">🍽 Menús opcionales para contratar (ver en adicionales)</div>
+        <div class="inc-item" style="grid-column:1/-1">💧 Agua purificada natural en jarras</div>
+        <div class="inc-item inc-opcional" style="grid-column:1/-1">➕ Bebida libre para adultos <span class="tag-opcional">Adicional opcional</span></div>
+        <div class="inc-item inc-opcional" style="grid-column:1/-1">🍕 Catering y torta temática <span class="tag-opcional">Opcional · ver en adicionales</span></div>
       </div>
     </div>
   </div>
@@ -2574,7 +2578,7 @@ label[for="acc-video"] {
         <div class="inc-item">🎴 Cartas coleccionables del Bosque</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
         <div class="inc-item">📽 Proyector</div>
-        <div class="inc-item">🎮 Juegos de mesa para adultos</div>
+        <div class="inc-item">♟️ Juegos de mesa para adultos</div>
         <div class="inc-item">🎪 Mini disco</div>
         <div class="inc-item">🏥 Servicio de emergencias médicas</div>
         <div class="inc-item">📸 Material fotográfico y video del evento</div>
@@ -2595,6 +2599,7 @@ label[for="acc-video"] {
         <div class="inc-item">❄ Refrigeración + calentar comida</div>
         <div class="inc-item">👨‍🍳 Servicio de camareros/as</div>
         <div class="inc-item" style="grid-column:1/-1">➕ Bebida libre adultos (adicional)</div>
+        <div class="inc-item" style="grid-column:1/-1">💧 Agua purificada natural en jarras</div>
       </div>
     </div>
   </div>
@@ -3001,36 +3006,6 @@ var MODALES = {
     precio: "$95.000",
     texto: "<p>Espectáculo unipersonal infantil. Corchito, un joven aspirante a marinero, abre un misterioso libro pop-up que lo transporta a un mar de aventuras, donde conoce personajes que revelan el tesoro perdido del pirata Fanfarrón.</p><p>Se recrea con diversos tipos de títeres, objetos escénicos, canciones, narración y un libro pop-up de gran formato. Todo de creación propia y artesanal.</p>",
     nota: "Público recomendado: 3 a 7 años. Duración 30-35 minutos. Valor sujeto al presupuesto del mes del festejo. Cancelaciones con al menos 10 días de anticipación; posterior a ese plazo se cobra el 50% del valor actual del servicio."
-  },
-  menu_clasico: {
-    titulo: "Menu de Tarde Clasico",
-    precio: "A consultar",
-    texto: "<p>Triangulitos jamon crudo/rucula/tomates/parmesano</p><p>Pletzalej pastron/pepinos agridulces</p><p>Chips jamon/queso/tomate</p><p>Rosetitas salame y queso</p><p>Canastitas cebolla y mozzarella</p><p>Alfajorcitos de maicena</p><p>Budin carrot/chocolate/citricos</p><p>Torta a eleccion (lemon pie/brownie alpino/crumble/cheesecake)</p>",
-    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
-  },
-  menu_veggie: {
-    titulo: "Menu de Tarde Veggie",
-    precio: "A consultar",
-    texto: "<p>Triangulitos queso/rucula/tomates/parmesano</p><p>Pletzalej queso/palta/tomates</p><p>Chips hummus/garbanzos/tofu</p><p>Mini burger veggies</p><p>Canastitas capresse</p><p>Alfajorcitos de maicena</p><p>Budin carrot/chocolate/citricos</p><p>Torta a eleccion (lemon pie/brownie alpino/crumble/cheesecake)</p>",
-    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
-  },
-  lunch_clasico: {
-    titulo: "Lunch Gourmet Clasico",
-    precio: "A consultar",
-    texto: "<p>Mini burger cheddar/panceta/cebollas caramelizadas</p><p>Empanaditas copetin de carne</p><p>Pancitos de semillas, salmon ahumado/rucula/tomates asados</p><p>Chips jamon crudo/rucula/tomates/parmesano</p><p>Focaccia con boconccinos/tomates y cebollas caramelizadas</p><p>Figacitas de manteca con pollo a la mostaza</p><p>Pinchos capresse</p>",
-    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
-  },
-  lunch_ejecutivo: {
-    titulo: "Lunch Gourmet Ejecutivo",
-    precio: "A consultar",
-    texto: "<p>Sambusek</p><p>Bombita capresse</p><p>Empanaditas de carne</p><p>Tortillita de papa con cebollita caramelizada y ciboulette</p><p>Pizzas gourmet (napo/muzza/fuga/malbec)</p><p><em>10 piezas por persona</em></p>",
-    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
-  },
-  lunch_premium: {
-    titulo: "Lunch Gourmet Premium",
-    precio: "A consultar",
-    texto: "<p>Pinchos de pollo crispy</p><p>Sorrentinos fritos de jamon, queso y ciboulette</p><p>Sambusek</p><p>Muffin souffle de choclo</p><p>Gyosas de cerdo y nira con reduccion de salsa de soja</p><p>Alemancito de pollo alioli</p><p><em>10 piezas por persona</em></p>",
-    nota: "Valores a consultar, van variando. El presupuesto se coordina con el salon."
   },
   turnos: {
     titulo: "🕐 Turnos y horarios",
