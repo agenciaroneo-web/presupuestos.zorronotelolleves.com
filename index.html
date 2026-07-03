@@ -2490,14 +2490,7 @@ label[for="acc-video"] {
             <button type="button" onclick="qtyE('adulto',1)">+</button>
           </div>
         </div>
-        <div class="adic-item">
-          <div class="adic-item-info"><div class="adic-item-nombre">🎉 Homenajeado/a extra</div><div class="adic-item-precio">$80.000 c/u</div></div>
-          <div class="adic-qty">
-            <button type="button" onclick="qtyE('home',-1)">−</button>
-            <span class="adic-qty-num" id="qty-home-e">0</span>
-            <button type="button" onclick="qtyE('home',1)">+</button>
-          </div>
-        </div>
+        
         <div class="adic-item">
           <div class="adic-item-info"><div class="adic-item-nombre">⏰ Hora extra</div><div class="adic-item-precio">$140.000 c/u</div></div>
           <div class="adic-qty">
@@ -3066,11 +3059,11 @@ function excluirC(elem) {
 
 
 // ═══ ADICIONALES 9A12 ═══
-var qty9 = { nino: 0, adulto: 0, home: 0, hora: 0, media: 0, coord: 0, camarero: 0, bebida: 0 };
+var qtyNums9 = { nino: 0, adulto: 0, home: 0, hora: 0, media: 0, coord: 0, camarero: 0, bebida: 0 };
 var preciosQty9 = { nino: 6000, adulto: 6000, home: 80000, hora: 140000, media: 70000, coord: 43000, camarero: 43000, bebida: 5000 };
 function qty9(tipo, delta) {
-  qty9[tipo] = Math.max(0, qty9[tipo] + delta);
-  document.getElementById("qty-" + tipo + "-9").textContent = qty9[tipo];
+  qtyNums9[tipo] = Math.max(0, qtyNums9[tipo] + delta);
+  document.getElementById("qty-" + tipo + "-9").textContent = qtyNums9[tipo];
   calcAdic9();
 }
 function excluir9(elem) {
@@ -3090,7 +3083,7 @@ function calcAdic9() {
   var mes = document.querySelector("input[name='mes-9a12']:checked");
   var dia = document.querySelector("input[name='dia-9a12']:checked");
   if (!mes || !dia) return;
-  var det = detalleAdic("9", qty9, preciosQty9);
+  var det = detalleAdic("9", qtyNums9, preciosQty9);
   var subtotal = det.subtotal;
   document.getElementById("adic-subtotal-9").textContent = "$" + fmt(subtotal);
   var base = PRECIOS_9A12[mes.value][dia.value];
@@ -3109,11 +3102,11 @@ function calcAdic9() {
 }
 
 // ═══ ADICIONALES BAUTISMO ═══
-var qtyB = { nino: 0, adulto: 0, home: 0, hora: 0, media: 0, coord: 0, camarero: 0, bebida: 0 };
+var qtyNumsB = { nino: 0, adulto: 0, home: 0, hora: 0, media: 0, coord: 0, camarero: 0, bebida: 0 };
 var preciosQtyB = { nino: 6000, adulto: 6000, home: 80000, hora: 140000, media: 70000, coord: 43000, camarero: 43000, bebida: 5000 };
 function qtyB(tipo, delta) {
-  qtyB[tipo] = Math.max(0, qtyB[tipo] + delta);
-  document.getElementById("qty-" + tipo + "-b").textContent = qtyB[tipo];
+  qtyNumsB[tipo] = Math.max(0, qtyNumsB[tipo] + delta);
+  document.getElementById("qty-" + tipo + "-b").textContent = qtyNumsB[tipo];
   calcAdicB();
 }
 function excluirB(elem) {
@@ -3133,7 +3126,7 @@ function calcAdicB() {
   var mes = document.querySelector("input[name='mes-bautismo']:checked");
   var dia = document.querySelector("input[name='dia-bautismo']:checked");
   if (!mes || !dia) return;
-  var det = detalleAdic("b", qtyB, preciosQtyB);
+  var det = detalleAdic("b", qtyNumsB, preciosQtyB);
   var subtotal = det.subtotal;
   document.getElementById("adic-subtotal-b").textContent = "$" + fmt(subtotal);
   var base = PRECIOS_BAUTISMO[mes.value][dia.value];
@@ -3152,11 +3145,11 @@ function calcAdicB() {
 }
 
 // ═══ ADICIONALES EGRESA ═══
-var qtyE = { nino: 0, adulto: 0, home: 0, hora: 0, media: 0, coord: 0, camarero: 0, bebida: 0 };
+var qtyNumsE = { nino: 0, adulto: 0, hora: 0, media: 0, coord: 0, camarero: 0, bebida: 0 };
 var preciosQtyE = { nino: 6000, adulto: 6000, home: 80000, hora: 140000, media: 70000, coord: 43000, camarero: 43000, bebida: 5000 };
 function qtyE(tipo, delta) {
-  qtyE[tipo] = Math.max(0, qtyE[tipo] + delta);
-  document.getElementById("qty-" + tipo + "-e").textContent = qtyE[tipo];
+  qtyNumsE[tipo] = Math.max(0, qtyNumsE[tipo] + delta);
+  document.getElementById("qty-" + tipo + "-e").textContent = qtyNumsE[tipo];
   calcAdicE();
 }
 function excluirE(elem) {
@@ -3173,7 +3166,7 @@ function excluirE(elem) {
   if (subCombo) { if (combo && combo.checked) { subCombo.style.display = "inline-flex"; } else { subCombo.style.display = "none"; var g2 = document.getElementById("ch-globo-combo-e"); if (g2) g2.checked = false; } }
 }
 function calcAdicE() {
-  var det = detalleAdic("e", qtyE, preciosQtyE);
+  var det = detalleAdic("e", qtyNumsE, preciosQtyE);
   var subtotal = det.subtotal;
   document.getElementById("adic-subtotal-e").textContent = "$" + fmt(subtotal);
   var base = cantEgresa * PRECIO_EGRESA_POR_EGRESADITO;
@@ -3275,7 +3268,7 @@ function compartirPresup(suf) {
   if (marcados.length > 0) params.set("ad", marcados.join(","));
   
   // Cantidades
-  var qtyObj = { c: qtyCumple, "9": qty9, b: qtyB, e: qtyE }[suf];
+  var qtyObj = { c: qtyCumple, "9": qtyNums9, b: qtyNumsB, e: qtyNumsE }[suf];
   var qtyStr = [];
   for (var tipo in qtyObj) { if (qtyObj[tipo] > 0) qtyStr.push(tipo + ":" + qtyObj[tipo]); }
   if (qtyStr.length > 0) params.set("q", qtyStr.join(","));
@@ -3345,7 +3338,7 @@ function cargarDesdeLink() {
     
     // Cantidades
     var q = params.get("q");
-    var qtyObj = { c: qtyCumple, "9": qty9, b: qtyB, e: qtyE }[suf];
+    var qtyObj = { c: qtyCumple, "9": qtyNums9, b: qtyNumsB, e: qtyNumsE }[suf];
     if (q) {
       q.split(",").forEach(function(par) {
         var kv = par.split(":");
