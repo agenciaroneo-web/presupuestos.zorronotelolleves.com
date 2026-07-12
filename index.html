@@ -1140,7 +1140,7 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-jul" value="julio" onchange="calcCumple()">
     <label class="opt-label lowcost-label" for="mc-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ago" value="agosto" onchange="calcCumple()">
-    <label class="opt-label lowcost-label" for="mc-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
+    <label class="opt-label lowcost-label" for="mc-ago">Agosto <span class="descuento-badge">DESCUENTO</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-sep" value="sep_dic" onchange="calcCumple()">
     <label class="opt-label" for="mc-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ene" value="ene_feb" onchange="calcCumple()">
@@ -1566,7 +1566,7 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-jul" value="julio" onchange="calc9a12()">
     <label class="opt-label lowcost-label" for="m9-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ago" value="agosto" onchange="calc9a12()">
-    <label class="opt-label lowcost-label" for="m9-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
+    <label class="opt-label lowcost-label" for="m9-ago">Agosto <span class="descuento-badge">DESCUENTO</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-sep" value="sep_dic" onchange="calc9a12()">
     <label class="opt-label" for="m9-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ene" value="ene_feb" onchange="calc9a12()">
@@ -2842,7 +2842,7 @@ function calcCumple() {
   document.getElementById("rcc-nota").textContent = p.label + " · abonando en efectivo";
   var antesEl = document.getElementById("rcc-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    var etiqueta = "Ahora LOW COST";
+    var etiqueta = (mes.value === "julio") ? "Ahora LOW COST" : "Descuento · ⏰ últimas fechas";
     antesEl.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>" + etiqueta + "</span>";
     antesEl.style.display = "block";
   } else { antesEl.style.display = "none"; }
@@ -2878,7 +2878,7 @@ function calc9a12() {
   document.getElementById("r9-nota").textContent = p.label + " · abonando en efectivo";
   var antesEl9 = document.getElementById("r9-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    var etiqueta9 = "Ahora LOW COST";
+    var etiqueta9 = (mes.value === "julio") ? "Ahora LOW COST" : "Descuento · ⏰ últimas fechas";
     antesEl9.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>" + etiqueta9 + "</span>";
     antesEl9.style.display = "block";
   } else { antesEl9.style.display = "none"; }
