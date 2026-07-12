@@ -1050,6 +1050,21 @@ label[for="acc-video"] {
   text-transform: uppercase;
   white-space: nowrap;
 }
+
+.descuento-badge {
+  display: inline-block;
+  background: #006873;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.opt-input:checked + .lowcost-label .descuento-badge { background: #fff; color: #006873; }
 </style>
 </head>
 <body>
@@ -1125,7 +1140,7 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-jul" value="julio" onchange="calcCumple()">
     <label class="opt-label lowcost-label" for="mc-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ago" value="agosto" onchange="calcCumple()">
-    <label class="opt-label" for="mc-ago">Agosto</label>
+    <label class="opt-label lowcost-label" for="mc-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-sep" value="sep_dic" onchange="calcCumple()">
     <label class="opt-label" for="mc-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ene" value="ene_feb" onchange="calcCumple()">
@@ -1551,7 +1566,7 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-jul" value="julio" onchange="calc9a12()">
     <label class="opt-label lowcost-label" for="m9-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ago" value="agosto" onchange="calc9a12()">
-    <label class="opt-label" for="m9-ago">Agosto</label>
+    <label class="opt-label lowcost-label" for="m9-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-sep" value="sep_dic" onchange="calc9a12()">
     <label class="opt-label" for="m9-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ene" value="ene_feb" onchange="calc9a12()">
@@ -2791,8 +2806,8 @@ label[for="acc-video"] {
 
 <script>
 // ── PRECIOS ──
-var PRECIOS_CUMPLE = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
-var PRECIOS_9A12   = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
+var PRECIOS_CUMPLE = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
+var PRECIOS_9A12   = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
 var PRECIOS_BAUTISMO = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}};
 var PRECIO_EGRESA_POR_EGRESADITO = 60000;
 
@@ -2827,7 +2842,8 @@ function calcCumple() {
   document.getElementById("rcc-nota").textContent = p.label + " · abonando en efectivo";
   var antesEl = document.getElementById("rcc-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    antesEl.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>Ahora LOW COST</span>";
+    var etiqueta = "Ahora LOW COST";
+    antesEl.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>" + etiqueta + "</span>";
     antesEl.style.display = "block";
   } else { antesEl.style.display = "none"; }
   document.getElementById("rcc-sena").textContent = "$" + fmt(sena);
@@ -2862,7 +2878,8 @@ function calc9a12() {
   document.getElementById("r9-nota").textContent = p.label + " · abonando en efectivo";
   var antesEl9 = document.getElementById("r9-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    antesEl9.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>Ahora LOW COST</span>";
+    var etiqueta9 = "Ahora LOW COST";
+    antesEl9.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>" + etiqueta9 + "</span>";
     antesEl9.style.display = "block";
   } else { antesEl9.style.display = "none"; }
   document.getElementById("r9-sena").textContent = "$" + fmt(sena);
