@@ -1065,6 +1065,22 @@ label[for="acc-video"] {
   text-transform: uppercase;
 }
 .opt-input:checked + .lowcost-label .descuento-badge { background: #fff; color: #006873; }
+
+.precio2026-badge {
+  display: inline-block;
+  background: #7B5BA6;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.opt-input:checked + .lowcost-label .precio2026-badge { background: #fff; color: #7B5BA6; }
 </style>
 </head>
 <body>
@@ -1144,7 +1160,9 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-sep" value="sep_dic" onchange="calcCumple()">
     <label class="opt-label" for="mc-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ene" value="ene_feb" onchange="calcCumple()">
-    <label class="opt-label" for="mc-ene">Ene–Feb</label>
+    <label class="opt-label lowcost-label" for="mc-ene">Ene–Feb <span class="precio2026-badge">PRECIOS 2026</span></label>
+    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-mar" value="marzo" onchange="calcCumple()">
+    <label class="opt-label" for="mc-mar">Marzo</label>
   </div>
 
   <p class="section-label">Día y turno</p>
@@ -1570,7 +1588,9 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-sep" value="sep_dic" onchange="calc9a12()">
     <label class="opt-label" for="m9-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ene" value="ene_feb" onchange="calc9a12()">
-    <label class="opt-label" for="m9-ene">Ene–Feb</label>
+    <label class="opt-label lowcost-label" for="m9-ene">Ene–Feb <span class="precio2026-badge">PRECIOS 2026</span></label>
+    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-mar" value="marzo" onchange="calc9a12()">
+    <label class="opt-label" for="m9-mar">Marzo</label>
   </div>
 
   <p class="section-label">Día y turno</p>
@@ -1976,7 +1996,9 @@ label[for="acc-video"] {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-sep" value="sep_dic" onchange="calcBautismo()">
     <label class="opt-label" for="mb-sep">Sep–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-ene" value="ene_feb" onchange="calcBautismo()">
-    <label class="opt-label" for="mb-ene">Ene–Feb</label>
+    <label class="opt-label lowcost-label" for="mb-ene">Ene–Feb <span class="precio2026-badge">PRECIOS 2026</span></label>
+    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-mar" value="marzo" onchange="calcBautismo()">
+    <label class="opt-label" for="mb-mar">Marzo</label>
   </div>
 
   <p class="section-label">Día y turno</p>
@@ -2783,9 +2805,14 @@ label[for="acc-video"] {
         <div class="des-sub">Juego libre en el salón</div>
       </div>
       <div class="des-item">
-        <div class="des-label">Incluye</div>
-        <div class="des-val" style="font-size:13px;line-height:1.4">Snack + bebida + infusión</div>
-        <div class="des-sub">Para el adulto acompañante</div>
+        <div class="des-label">Incluye · Niño/a</div>
+        <div class="des-val" style="font-size:13px;line-height:1.4">Snack + bebida</div>
+        <div class="des-sub">Mini arrocitas o alfajorcitos de maicena</div>
+      </div>
+      <div class="des-item" style="grid-column:1/-1">
+        <div class="des-label">Incluye · Adulto acompañante</div>
+        <div class="des-val" style="font-size:13px;line-height:1.4">Una infusión</div>
+        <div class="des-sub">Café, té o mate</div>
       </div>
     </div>
     <div class="callout-green">🕔 <strong>Horarios disponibles:</strong> 16:30 · 17:00 · 17:30 · 18:00 · 18:30hs<br>Días con agenda libre, sin eventos programados.</div>
@@ -2806,9 +2833,9 @@ label[for="acc-video"] {
 
 <script>
 // ── PRECIOS ──
-var PRECIOS_CUMPLE = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
-var PRECIOS_9A12   = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}};
-var PRECIOS_BAUTISMO = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}};
+var PRECIOS_CUMPLE = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
+var PRECIOS_9A12   = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
+var PRECIOS_BAUTISMO = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"marzo":{"label":"Marzo 2027","fds":760000,"semana_t":730000,"semana_m":630000,"manana":630000}};
 var PRECIO_EGRESA_POR_EGRESADITO = 60000;
 
 function fmt(n) { return n.toLocaleString("es-AR"); }
