@@ -1153,8 +1153,6 @@ label[for="acc-video"] {
 
   <p class="section-label">Mes del festejo</p>
   <div class="opts" id="opts-mes-cumple">
-    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-jul" value="julio" onchange="calcCumple()">
-    <label class="opt-label lowcost-label" for="mc-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ago" value="agosto" onchange="calcCumple()">
     <label class="opt-label lowcost-label" for="mc-ago">Agosto <span class="descuento-badge">DESCUENTO</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-sep" value="sep_dic" onchange="calcCumple()">
@@ -1230,6 +1228,12 @@ label[for="acc-video"] {
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-burbujas-c" data-precio="120000" data-grupo="magia" onchange="excluirC(this);calcAdicC()">
           <div class="adic-item-info"><div class="adic-item-nombre">🫧 Show de Burbujas <button type="button" class="ver-mas" onclick="abrirModal('burbujas')">ⓘ ver más</button></div><div class="adic-item-precio">$120.000</div></div>
+        </div>
+        <div class="adic-subitem" id="sub-globo-burbujas-c" style="display:none;">
+          <input type="checkbox" class="globo-check" id="ch-globo-burbujas-c" data-precio="45000" onchange="calcAdicC()">
+          <label for="ch-globo-burbujas-c">
+            <span>+🎈$45k</span>
+          </label>
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-combo-c" data-precio="145000" data-grupo="magia" data-combo="1" onchange="excluirC(this);calcAdicC()">
@@ -1581,8 +1585,6 @@ label[for="acc-video"] {
 
   <p class="section-label">Mes del festejo</p>
   <div class="opts">
-    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-jul" value="julio" onchange="calc9a12()">
-    <label class="opt-label lowcost-label" for="m9-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ago" value="agosto" onchange="calc9a12()">
     <label class="opt-label lowcost-label" for="m9-ago">Agosto <span class="descuento-badge">DESCUENTO</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-sep" value="sep_dic" onchange="calc9a12()">
@@ -1654,6 +1656,12 @@ label[for="acc-video"] {
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-burbujas-9" data-precio="120000" data-grupo="magia" onchange="excluir9(this);calcAdic9()">
           <div class="adic-item-info"><div class="adic-item-nombre">🫧 Show de Burbujas <button type="button" class="ver-mas" onclick="abrirModal('burbujas')">ⓘ ver más</button></div><div class="adic-item-precio">$120.000</div></div>
+        </div>
+        <div class="adic-subitem" id="sub-globo-burbujas-9" style="display:none;">
+          <input type="checkbox" class="globo-check" id="ch-globo-burbujas-9" data-precio="45000" onchange="calcAdic9()">
+          <label for="ch-globo-burbujas-9">
+            <span>+🎈$45k</span>
+          </label>
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-combo-9" data-precio="145000" data-grupo="magia" data-combo="1" onchange="excluir9(this);calcAdic9()">
@@ -1989,8 +1997,6 @@ label[for="acc-video"] {
 
   <p class="section-label">Mes del evento</p>
   <div class="opts">
-    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-jul" value="julio" onchange="calcBautismo()">
-    <label class="opt-label lowcost-label" for="mb-jul">Julio <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-ago" value="agosto" onchange="calcBautismo()">
     <label class="opt-label" for="mb-ago">Agosto</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-sep" value="sep_dic" onchange="calcBautismo()">
@@ -2062,6 +2068,12 @@ label[for="acc-video"] {
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-burbujas-b" data-precio="120000" data-grupo="magia" onchange="excluirB(this);calcAdicB()">
           <div class="adic-item-info"><div class="adic-item-nombre">🫧 Show de Burbujas <button type="button" class="ver-mas" onclick="abrirModal('burbujas')">ⓘ ver más</button></div><div class="adic-item-precio">$120.000</div></div>
+        </div>
+        <div class="adic-subitem" id="sub-globo-burbujas-b" style="display:none;">
+          <input type="checkbox" class="globo-check" id="ch-globo-burbujas-b" data-precio="45000" onchange="calcAdicB()">
+          <label for="ch-globo-burbujas-b">
+            <span>+🎈$45k</span>
+          </label>
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-combo-b" data-precio="145000" data-grupo="magia" data-combo="1" onchange="excluirB(this);calcAdicB()">
@@ -2471,6 +2483,12 @@ label[for="acc-video"] {
           <input type="checkbox" class="adic-check" id="ch-burbujas-e" data-precio="120000" data-grupo="magia" onchange="excluirE(this);calcAdicE()">
           <div class="adic-item-info"><div class="adic-item-nombre">🫧 Show de Burbujas <button type="button" class="ver-mas" onclick="abrirModal('burbujas')">ⓘ ver más</button></div><div class="adic-item-precio">$120.000</div></div>
         </div>
+        <div class="adic-subitem" id="sub-globo-burbujas-e" style="display:none;">
+          <input type="checkbox" class="globo-check" id="ch-globo-burbujas-e" data-precio="45000" onchange="calcAdicE()">
+          <label for="ch-globo-burbujas-e">
+            <span>+🎈$45k</span>
+          </label>
+        </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-combo-e" data-precio="145000" data-grupo="magia" data-combo="1" onchange="excluirE(this);calcAdicE()">
           <div class="adic-item-info"><div class="adic-item-nombre">🎩 Magia + 🫧 Burbujas <button type="button" class="ver-mas" onclick="abrirModal('combo')">ⓘ ver más</button></div><div class="adic-item-precio">$145.000</div></div>
@@ -2833,9 +2851,9 @@ label[for="acc-video"] {
 
 <script>
 // ── PRECIOS ──
-var PRECIOS_CUMPLE = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
-var PRECIOS_9A12   = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
-var PRECIOS_BAUTISMO = {"julio":{"label":"Julio 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"marzo":{"label":"Marzo 2027","fds":760000,"semana_t":730000,"semana_m":630000,"manana":630000}};
+var PRECIOS_CUMPLE = {"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
+var PRECIOS_9A12   = {"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
+var PRECIOS_BAUTISMO = {"agosto":{"label":"Agosto 2026","fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000},"sep_dic":{"label":"Sep\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"marzo":{"label":"Marzo 2027","fds":760000,"semana_t":730000,"semana_m":630000,"manana":630000}};
 var PRECIO_EGRESA_POR_EGRESADITO = 60000;
 
 function fmt(n) { return n.toLocaleString("es-AR"); }
@@ -3036,7 +3054,7 @@ var MODALES = {
   burbujas: {
     titulo: "🫧 Show de Burbujas",
     precio: "$120.000",
-    texto: "<p>Un espectáculo mágico de burbujas gigantes que encanta a chicos y grandes. Podés sumar Globología por $40.000 al servicio.</p>",
+    texto: "<p>Un espectáculo mágico de burbujas gigantes que encanta a chicos y grandes. Podés sumar Globología por $45.000 al servicio.</p>",
     nota: "Servicio de hasta 30 chicos (pasada la cantidad, consultar valor extra). Valores sujetos al presupuesto del mes del festejo. Cancelaciones con al menos 10 días de anticipación; posterior a ese plazo se cobra el 50% del valor actual del servicio."
   },
   combo: {
@@ -3106,6 +3124,12 @@ function excluirC(elem) {
     if (combo && combo.checked) { subCombo.style.display = "inline-flex"; }
     else { subCombo.style.display = "none"; var g2 = document.getElementById("ch-globo-combo-c"); if (g2) g2.checked = false; }
   }
+  var burbujas = document.getElementById("ch-burbujas-c");
+  var subBurbujas = document.getElementById("sub-globo-burbujas-c");
+  if (subBurbujas) {
+    if (burbujas && burbujas.checked) { subBurbujas.style.display = "inline-flex"; }
+    else { subBurbujas.style.display = "none"; var g3 = document.getElementById("ch-globo-burbujas-c"); if (g3) g3.checked = false; }
+  }
 }
 
 
@@ -3129,6 +3153,9 @@ function excluir9(elem) {
   var subCombo = document.getElementById("sub-globo-combo-9");
   if (subMagia) { if (magia && magia.checked) { subMagia.style.display = "inline-flex"; } else { subMagia.style.display = "none"; var g = document.getElementById("ch-globo-magia-9"); if (g) g.checked = false; } }
   if (subCombo) { if (combo && combo.checked) { subCombo.style.display = "inline-flex"; } else { subCombo.style.display = "none"; var g2 = document.getElementById("ch-globo-combo-9"); if (g2) g2.checked = false; } }
+  var burbujas = document.getElementById("ch-burbujas-9");
+  var subBurbujas = document.getElementById("sub-globo-burbujas-9");
+  if (subBurbujas) { if (burbujas && burbujas.checked) { subBurbujas.style.display = "inline-flex"; } else { subBurbujas.style.display = "none"; var g3 = document.getElementById("ch-globo-burbujas-9"); if (g3) g3.checked = false; } }
 }
 function calcAdic9() {
   var mes = document.querySelector("input[name='mes-9a12']:checked");
@@ -3172,6 +3199,9 @@ function excluirB(elem) {
   var subCombo = document.getElementById("sub-globo-combo-b");
   if (subMagia) { if (magia && magia.checked) { subMagia.style.display = "inline-flex"; } else { subMagia.style.display = "none"; var g = document.getElementById("ch-globo-magia-b"); if (g) g.checked = false; } }
   if (subCombo) { if (combo && combo.checked) { subCombo.style.display = "inline-flex"; } else { subCombo.style.display = "none"; var g2 = document.getElementById("ch-globo-combo-b"); if (g2) g2.checked = false; } }
+  var burbujas = document.getElementById("ch-burbujas-b");
+  var subBurbujas = document.getElementById("sub-globo-burbujas-b");
+  if (subBurbujas) { if (burbujas && burbujas.checked) { subBurbujas.style.display = "inline-flex"; } else { subBurbujas.style.display = "none"; var g3 = document.getElementById("ch-globo-burbujas-b"); if (g3) g3.checked = false; } }
 }
 function calcAdicB() {
   var mes = document.querySelector("input[name='mes-bautismo']:checked");
@@ -3215,6 +3245,9 @@ function excluirE(elem) {
   var subCombo = document.getElementById("sub-globo-combo-e");
   if (subMagia) { if (magia && magia.checked) { subMagia.style.display = "inline-flex"; } else { subMagia.style.display = "none"; var g = document.getElementById("ch-globo-magia-e"); if (g) g.checked = false; } }
   if (subCombo) { if (combo && combo.checked) { subCombo.style.display = "inline-flex"; } else { subCombo.style.display = "none"; var g2 = document.getElementById("ch-globo-combo-e"); if (g2) g2.checked = false; } }
+  var burbujas = document.getElementById("ch-burbujas-e");
+  var subBurbujas = document.getElementById("sub-globo-burbujas-e");
+  if (subBurbujas) { if (burbujas && burbujas.checked) { subBurbujas.style.display = "inline-flex"; } else { subBurbujas.style.display = "none"; var g3 = document.getElementById("ch-globo-burbujas-e"); if (g3) g3.checked = false; } }
 }
 function calcAdicE() {
   var det = detalleAdic("e", qtyNumsE, preciosQtyE);
