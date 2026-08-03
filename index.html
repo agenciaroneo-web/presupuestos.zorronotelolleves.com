@@ -1273,7 +1273,7 @@ label[for="acc-video"] {
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-maqglit-c" data-precio="95000" data-grupo="maq" onchange="excluirC(this);calcAdicC()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
+          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje_glitter')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
         </div>
 
         <div class="adic-cat">Snacks y bebidas</div>
@@ -1703,7 +1703,7 @@ label[for="acc-video"] {
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-maqglit-9" data-precio="95000" data-grupo="maq" onchange="excluir9(this);calcAdic9()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
+          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje_glitter')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
         </div>
 
         <div class="adic-cat">Snacks y bebidas</div>
@@ -2117,7 +2117,7 @@ label[for="acc-video"] {
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-maqglit-b" data-precio="95000" data-grupo="maq" onchange="excluirB(this);calcAdicB()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
+          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje_glitter')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
         </div>
 
         <div class="adic-cat">Snacks y bebidas</div>
@@ -2531,7 +2531,7 @@ label[for="acc-video"] {
         </div>
         <div class="adic-item">
           <input type="checkbox" class="adic-check" id="ch-maqglit-e" data-precio="95000" data-grupo="maq" onchange="excluirE(this);calcAdicE()">
-          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
+          <div class="adic-item-info"><div class="adic-item-nombre">🎨 Maquillaje + Glitter <button type="button" class="ver-mas" onclick="abrirModal('maquillaje_glitter')">ⓘ ver más</button></div><div class="adic-item-precio">$95.000</div></div>
         </div>
 
         <div class="adic-cat">Snacks y bebidas</div>
@@ -3105,8 +3105,14 @@ var MODALES = {
   },
   maquillaje: {
     titulo: "🎨 Maquillaje Artístico",
-    precio: "Desde $87.000",
-    texto: "<p><strong>Maquillaje Artístico ($87.000):</strong> variedad de diseños y stencil, 1 por niño, en rostro o brazo.</p><p><strong>Combo Maqui + Glitter ($95.000):</strong> brillos, apliques, parches autoadhesivos y brillos en gel de variedad de colores.</p>",
+    precio: "",
+    texto: "<p>Variedad de diseños y stencil, 1 por niño, en rostro o brazo.</p>",
+    nota: "Hasta 30 niños (pasada esa cantidad se agrega otra maquilladora). No se maquilla a menores de 2 años ni adultos. Valores sujetos al presupuesto del mes del festejo. Cancelaciones con al menos 10 días de anticipación; posterior a ese plazo se cobra el 50% del valor actual del servicio."
+  },
+  maquillaje_glitter: {
+    titulo: "🎨 Maquillaje + Glitter",
+    precio: "",
+    texto: "<p>El combo completo: maquillaje artístico con variedad de diseños y stencil (1 por niño, en rostro o brazo), más glitter bar con brillos, apliques, parches autoadhesivos y brillos en gel de variedad de colores.</p>",
     nota: "Hasta 30 niños (pasada esa cantidad se agrega otra maquilladora). No se maquilla a menores de 2 años ni adultos. Valores sujetos al presupuesto del mes del festejo. Cancelaciones con al menos 10 días de anticipación; posterior a ese plazo se cobra el 50% del valor actual del servicio."
   }
 };
@@ -3115,7 +3121,9 @@ function abrirModal(key) {
   var m = MODALES[key];
   if (!m) return;
   document.getElementById("modal-titulo").textContent = m.titulo;
-  document.getElementById("modal-precio").textContent = m.precio;
+  var precioEl = document.getElementById("modal-precio");
+  precioEl.textContent = m.precio;
+  precioEl.style.display = m.precio ? "block" : "none";
   document.getElementById("modal-texto").innerHTML = m.texto;
   document.getElementById("modal-nota").textContent = m.nota;
   document.getElementById("modal-overlay").classList.add("activo");
