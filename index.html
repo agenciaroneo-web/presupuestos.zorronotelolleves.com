@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Calculá tu presupuesto — Zorro, No Te Lo Lleves!</title>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://presupuestos.zorronotelolleves.com/">
@@ -1097,6 +1097,20 @@ label[for="acc-video"] {
   white-space: nowrap;
 }
 .opt-input:checked + .lowcost-label .promo-badge { background: #fff; color: #D6336C; }
+
+/* BLOQUEAR ZOOM (comportamiento tipo app) */
+html {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+* {
+  -webkit-touch-callout: none;
+}
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
 </style>
 </head>
 <body>
@@ -1169,10 +1183,8 @@ label[for="acc-video"] {
 
   <p class="section-label">Mes del festejo</p>
   <div class="opts" id="opts-mes-cumple">
-    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ago" value="agosto" onchange="calcCumple()">
-    <label class="opt-label lowcost-label" for="mc-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-sept" value="septiembre" onchange="calcCumple()">
-    <label class="opt-label lowcost-label" for="mc-sept">Septiembre <span class="promo-badge">PROMO · ÚLTIMAS FECHAS</span></label>
+    <label class="opt-label lowcost-label" for="mc-sept">Septiembre <span class="lowcost-badge">LOW COST · ÚLTIMAS FECHAS</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-oct" value="oct_dic" onchange="calcCumple()">
     <label class="opt-label" for="mc-oct">Oct–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-cumple" id="mc-ene" value="ene_feb" onchange="calcCumple()">
@@ -1603,10 +1615,8 @@ label[for="acc-video"] {
 
   <p class="section-label">Mes del festejo</p>
   <div class="opts">
-    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ago" value="agosto" onchange="calc9a12()">
-    <label class="opt-label lowcost-label" for="m9-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-sept" value="septiembre" onchange="calc9a12()">
-    <label class="opt-label lowcost-label" for="m9-sept">Septiembre <span class="promo-badge">PROMO · ÚLTIMAS FECHAS</span></label>
+    <label class="opt-label lowcost-label" for="m9-sept">Septiembre <span class="lowcost-badge">LOW COST · ÚLTIMAS FECHAS</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-oct" value="oct_dic" onchange="calc9a12()">
     <label class="opt-label" for="m9-oct">Oct–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-9a12" id="m9-ene" value="ene_feb" onchange="calc9a12()">
@@ -2017,10 +2027,8 @@ label[for="acc-video"] {
 
   <p class="section-label">Mes del evento</p>
   <div class="opts">
-    <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-ago" value="agosto" onchange="calcBautismo()">
-    <label class="opt-label lowcost-label" for="mb-ago">Agosto <span class="lowcost-badge">LOW COST</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-sept" value="septiembre" onchange="calcBautismo()">
-    <label class="opt-label lowcost-label" for="mb-sept">Septiembre <span class="promo-badge">PROMO · ÚLTIMAS FECHAS</span></label>
+    <label class="opt-label lowcost-label" for="mb-sept">Septiembre <span class="lowcost-badge">LOW COST · ÚLTIMAS FECHAS</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-oct" value="oct_dic" onchange="calcBautismo()">
     <label class="opt-label" for="mb-oct">Oct–Dic</label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="mes-bautismo" id="mb-ene" value="ene_feb" onchange="calcBautismo()">
@@ -2873,9 +2881,9 @@ label[for="acc-video"] {
 
 <script>
 // ── PRECIOS ──
-var PRECIOS_CUMPLE = {"agosto":{"label":"Agosto 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000}},"septiembre":{"label":"Septiembre 2026","fds":720000,"semana_t":690000,"semana_m":620000,"manana":620000,"lowcost":true,"antes":{"fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}},"oct_dic":{"label":"Oct\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
-var PRECIOS_9A12   = {"agosto":{"label":"Agosto 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000}},"septiembre":{"label":"Septiembre 2026","fds":720000,"semana_t":690000,"semana_m":620000,"manana":620000,"lowcost":true,"antes":{"fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}},"oct_dic":{"label":"Oct\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
-var PRECIOS_BAUTISMO = {"agosto":{"label":"Agosto 2026","fds":590000,"semana_t":590000,"semana_m":590000,"manana":590000,"lowcost":true,"antes":{"fds":690000,"semana_t":660000,"semana_m":590000,"manana":590000}},"septiembre":{"label":"Septiembre 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"oct_dic":{"label":"Oct\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"marzo":{"label":"Marzo 2027","fds":760000,"semana_t":730000,"semana_m":630000,"manana":630000}};
+var PRECIOS_CUMPLE = {"septiembre":{"label":"Septiembre 2026","fds":620000,"semana_t":620000,"semana_m":620000,"manana":620000,"lowcost":true,"antes":{"fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}},"oct_dic":{"label":"Oct\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
+var PRECIOS_9A12   = {"septiembre":{"label":"Septiembre 2026","fds":620000,"semana_t":620000,"semana_m":620000,"manana":620000,"lowcost":true,"antes":{"fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000}},"oct_dic":{"label":"Oct\u2014Dic 2026","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":750000,"semana_t":720000,"semana_m":620000,"manana":620000},"marzo":{"label":"Marzo 2027","fds":790000,"semana_t":760000,"semana_m":660000,"manana":660000}};
+var PRECIOS_BAUTISMO = {"septiembre":{"label":"Septiembre 2026","fds":620000,"semana_t":620000,"semana_m":620000,"manana":620000,"lowcost":true,"antes":{"fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000}},"oct_dic":{"label":"Oct\u2014Dic 2026","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"ene_feb":{"label":"Ene\u2014Feb 2027","fds":720000,"semana_t":690000,"semana_m":590000,"manana":590000},"marzo":{"label":"Marzo 2027","fds":760000,"semana_t":730000,"semana_m":630000,"manana":630000}};
 var PRECIO_EGRESA_POR_EGRESADITO = 60000;
 
 function fmt(n) { return n.toLocaleString("es-AR"); }
@@ -2909,7 +2917,7 @@ function calcCumple() {
   document.getElementById("rcc-nota").textContent = p.label + " · abonando en efectivo";
   var antesEl = document.getElementById("rcc-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    var etiqueta = (mes.value === "septiembre") ? "⏰ PROMO últimas fechas" : "Ahora LOW COST";
+    var etiqueta = "⏰ LOW COST · últimas fechas";
     antesEl.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>" + etiqueta + "</span>";
     antesEl.style.display = "block";
   } else { antesEl.style.display = "none"; }
@@ -2945,7 +2953,7 @@ function calc9a12() {
   document.getElementById("r9-nota").textContent = p.label + " · abonando en efectivo";
   var antesEl9 = document.getElementById("r9-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    var etiqueta9 = (mes.value === "septiembre") ? "⏰ PROMO últimas fechas" : "Ahora LOW COST";
+    var etiqueta9 = "⏰ LOW COST · últimas fechas";
     antesEl9.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>" + etiqueta9 + "</span>";
     antesEl9.style.display = "block";
   } else { antesEl9.style.display = "none"; }
@@ -2979,7 +2987,7 @@ function calcBautismo() {
   document.getElementById("rb-nota").textContent = p.label + " · abonando en efectivo";
   var antesElB = document.getElementById("rb-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
-    antesElB.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>Ahora LOW COST</span>";
+    antesElB.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>⏰ LOW COST · últimas fechas</span>";
     antesElB.style.display = "block";
   } else { antesElB.style.display = "none"; }
   document.getElementById("rb-sena").textContent = "$" + fmt(sena);
