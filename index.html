@@ -1127,6 +1127,33 @@ input, textarea {
   white-space: nowrap;
 }
 .opt-input:checked + .lowcost-label .preventa-badge { background: #fff; color: #185FA5; }
+
+.tdj-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 480px;
+  margin: 18px auto 4px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #0D3B30 0%, #1A5244 55%, #006873 100%);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(13,59,48,0.28);
+  border: 1.5px solid rgba(250,111,44,0.55);
+  animation: tdjPulse 2.6s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+@keyframes tdjPulse {
+  0%,100% { box-shadow: 0 6px 20px rgba(13,59,48,0.28); }
+  50% { box-shadow: 0 6px 26px rgba(250,111,44,0.45); }
+}
+.tdj-banner:active { transform: scale(0.99); }
+.tdj-banner-emoji { font-size: 30px; flex-shrink: 0; }
+.tdj-banner-text { display: flex; flex-direction: column; flex: 1; }
+.tdj-banner-title { font-size: 15px; font-weight: 800; letter-spacing: 0.01em; }
+.tdj-banner-sub { font-size: 12.5px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+.tdj-banner-arrow { font-size: 22px; color: #fa6f2c; font-weight: 800; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -1187,6 +1214,15 @@ input, textarea {
     </button>
 
   </div>
+
+  <a class="tdj-banner" href="https://agenda-tardedejuegos.zorronotelolleves.com/" target="_blank" rel="noopener">
+    <span class="tdj-banner-emoji">🌿</span>
+    <span class="tdj-banner-text">
+      <span class="tdj-banner-title">¡NUEVO! Reservá tu Tarde de Juego</span>
+      <span class="tdj-banner-sub">Elegí día y horario online en la agenda ✨</span>
+    </span>
+    <span class="tdj-banner-arrow">→</span>
+  </a>
 </div>
 
 <!-- PANTALLA 1: CUMPLEAÑOS -->
@@ -2897,7 +2933,11 @@ input, textarea {
     </div>
     <div class="callout-green">🕔 <strong>Horarios disponibles:</strong> 16:30 · 17:00 · 17:30 · 18:00 · 18:30hs<br>Días con agenda libre, sin eventos programados.</div>
     <div class="callout-orange">📅 Reserva anticipada obligatoria. Consultá disponibilidad antes de confirmar.</div>
-    <p class="wa-hint">Consultá disponibilidad directamente por WhatsApp.</p>
+    <a class="wa-btn tdj-agenda-btn" href="https://agenda-tardedejuegos.zorronotelolleves.com/" target="_blank" rel="noopener" style="background:#006873">
+      Reservar en la agenda 🗓️
+      <div class="wa-btn-sub">Elegí tu día y horario online</div>
+    </a>
+    <p class="wa-hint">¿Preferís escribirnos? Consultá disponibilidad por WhatsApp.</p>
     <a class="wa-btn" href="https://wa.me/5491122546284?text=Hola!%20Quiero%20consultar%20disponibilidad%20para%20una%20Tarde%20de%20Juego%20%F0%9F%8C%BF" target="_blank" style="background:#fa6f2c">
       Consultar disponibilidad 🌿
       <div class="wa-btn-sub">Te respondemos a la brevedad</div>
