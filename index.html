@@ -1537,7 +1537,6 @@ input, textarea {
     </table>
     <div class="cmpb-legend"><span><span class="cmpb-yes">✓</span> Incluido</span><span><span class="cmpb-no">✗</span> No incluido (se suma aparte)</span></div>
     <div class="cmpb-foot"><p>💡 En el <b>Presupuesto Básico</b> podés sumar lo que quieras desde <b>"Sumá adicionales y extras"</b> y armar tu festejo a medida.</p></div>
-    <a class="cmpb-wa" onclick="compartirCmpBasico('cumple')">📲 Compartir este cuadro por WhatsApp</a>
   </div>
   <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-act-c">
@@ -2036,7 +2035,6 @@ input, textarea {
     </table>
     <div class="cmpb-legend"><span><span class="cmpb-yes">✓</span> Incluido</span><span><span class="cmpb-no">✗</span> No incluido (se suma aparte)</span></div>
     <div class="cmpb-foot"><p>💡 En el <b>Presupuesto Básico</b> podés sumar lo que quieras desde <b>"Sumá adicionales y extras"</b> y armar tu festejo a medida.</p></div>
-    <a class="cmpb-wa" onclick="compartirCmpBasico('9a12')">📲 Compartir este cuadro por WhatsApp</a>
   </div>
   <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-act-9">
@@ -2528,7 +2526,6 @@ input, textarea {
     </table>
     <div class="cmpb-legend"><span><span class="cmpb-yes">✓</span> Incluido</span><span><span class="cmpb-no">✗</span> No incluido (se suma aparte)</span></div>
     <div class="cmpb-foot"><p>💡 En el <b>Presupuesto Básico</b> podés sumar lo que quieras desde <b>"Sumá adicionales y extras"</b> y armar tu festejo a medida.</p></div>
-    <a class="cmpb-wa" onclick="compartirCmpBasico('bautismo')">📲 Compartir este cuadro por WhatsApp</a>
   </div>
   <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-act-b">
@@ -3688,31 +3685,6 @@ function detalleAdic(suf, qtyObj, preciosObj) {
     }
   }
   return { lineas: lineas, subtotal: subtotal };
-}
-
-
-// ═══ COMPARTIR CUADRO COMPARATIVO (BÁSICO) ═══
-function compartirCmpBasico(ev){
-  var nombres={cumple:"Cumpleanos (hasta 8 anos)","9a12":"Cumpleanos 9 a 12 anos",bautismo:"Bautismo / Comunion"};
-  var t="";
-  t+="Zorro, No Te Lo Lleves!\n";
-  t+="Comparativa: Presupuesto COMPLETO vs BASICO\n";
-  if(nombres[ev]) t+="("+nombres[ev]+")\n";
-  t+="\nEN AMBOS PRESUPUESTOS:\n";
-  t+="- Misiones y juegos por edad\n";
-  t+="- Mini disco, proyector y juegos de mesa\n";
-  t+="- Tarjeta de invitacion digital\n";
-  t+="- Camareros/as + refrigeracion de bebidas\n";
-  t+="- Todas las instalaciones (laberinto, trampoline, sala blanda, videojuegos, metegol, TVs, WiFi)\n";
-  t+="- Emergencias medicas + bano accesible\n";
-  t+="\nSOLO EN EL COMPLETO (en el Basico se suma aparte):\n";
-  t+="- Juego del Aljibe + Insignia + Cartas + Souvenirs  ->  Pack del bosque\n";
-  t+="- Material fotografico y video\n";
-  if(ev!=="bautismo") t+="- Comida y bebida de los ninos\n";
-  t+="- Infusiones para adultos (cafe, te, mate)\n";
-  t+="\nCon el Presupuesto Basico armas tu festejo a medida sumando solo lo que quieras.\n";
-  t+="presupuestos.zorronotelolleves.com";
-  window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
 }
 
 
