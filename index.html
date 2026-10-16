@@ -1154,6 +1154,32 @@ input, textarea {
 .tdj-banner-title { font-size: 15px; font-weight: 800; letter-spacing: 0.01em; }
 .tdj-banner-sub { font-size: 12.5px; color: rgba(255,255,255,0.8); margin-top: 2px; }
 .tdj-banner-arrow { font-size: 22px; color: #fa6f2c; font-weight: 800; flex-shrink: 0; }
+
+/* ── CUADRO COMPARATIVO BÁSICO vs COMPLETO ── */
+.cmpb-card{background:#fff;border:0.5px solid #D3D1C7;border-radius:18px;overflow:hidden;margin:4px 0 20px;box-shadow:0 6px 18px rgba(0,0,0,.08);}
+.cmpb-head{background:linear-gradient(120deg,#0D3B30,#1A5244 60%,#006873);padding:16px 16px 14px;}
+.cmpb-head h3{color:#fff;font-size:16px;font-weight:800;line-height:1.2;}
+.cmpb-head p{color:rgba(255,255,255,.72);font-size:11.5px;margin-top:3px;}
+.cmpb-table{width:100%;border-collapse:collapse;}
+.cmpb-table th,.cmpb-table td{text-align:left;padding:11px 10px;font-size:12.5px;border-bottom:.5px solid #E6E4DC;vertical-align:middle;}
+.cmpb-table thead th{background:#EDE9E0;color:#5F5E5A;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:8px 10px;}
+.cmpb-table th.c,.cmpb-table td.c{text-align:center;width:70px;}
+.cmpb-col1{color:#006873;}
+.cmpb-col2{color:#B06A1E;}
+.cmpb-sec td{background:#006873;color:#fff;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:7px 10px;}
+.cmpb-it{display:flex;align-items:flex-start;gap:8px;color:#1A1A18;line-height:1.35;}
+.cmpb-it .em{flex-shrink:0;width:20px;text-align:center;}
+.cmpb-it .tx{flex:1;}
+.cmpb-yes{color:#2E8B3A;font-size:16px;font-weight:800;}
+.cmpb-no{color:#CF4B3A;font-size:16px;font-weight:800;line-height:1;}
+.cmpb-no-sub{display:block;font-size:9px;color:#B06A1E;font-weight:700;margin-top:4px;white-space:nowrap;}
+.cmpb-legend{display:flex;gap:14px;padding:11px 14px 2px;flex-wrap:wrap;}
+.cmpb-legend span{font-size:11px;color:#5F5E5A;display:flex;align-items:center;gap:5px;}
+.cmpb-foot{padding:8px 14px 12px;}
+.cmpb-foot p{font-size:11.5px;color:#888780;line-height:1.5;}
+.cmpb-foot b{color:#C25410;}
+.cmpb-wa{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 14px 16px;padding:13px;background:#25D366;border-radius:12px;color:#fff;font-size:13.5px;font-weight:800;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.cmpb-wa:active{transform:scale(0.99);}
 </style>
 </head>
 <body>
@@ -1248,7 +1274,7 @@ input, textarea {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="dia-cumple" id="dc-man" value="manana" onchange="calcCumple()">
     <label class="opt-label" for="dc-man"><span class="opt-titulo">Promo Desayuno</span><span class="opt-detalle">Finde y feriados · 9:30hs · 2hs de duración</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="dia-cumple" id="dc-bas" value="basico" onchange="calcCumple()">
-    <label class="opt-label" for="dc-bas"><span class="opt-titulo">Presupuesto Básico</span><span class="opt-detalle">Más económico, consultar por fechas disponibles</span></label>
+    <label class="opt-label" for="dc-bas"><span class="opt-titulo">Presupuesto Básico</span><span class="opt-detalle" style="color:#fa6f2c;font-weight:600;">Aplica solo para fechas específicas</span></label>
   </div>
 
   <div class="resultado" id="res-cumple">
@@ -1476,13 +1502,49 @@ input, textarea {
       </div>
     </div>
   </div>
+
+  <div class="cmpb-card" id="cmp-basico-c" style="display:none;">
+    <div class="cmpb-head"><h3>📊 Presupuesto Completo vs. Básico</h3><p>Qué incluye cada uno · lo del Básico se suma aparte</p></div>
+    <table class="cmpb-table">
+      <thead><tr><th>Incluye</th><th class="c cmpb-col1">Completo</th><th class="c cmpb-col2">Básico</th></tr></thead>
+      <tbody>
+      <tr class="cmpb-sec"><td colspan="3">🎪 Actividades y experiencia</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🗺</span><span class="tx">Misiones y juegos por edad</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎪</span><span class="tx">Mini disco con luces</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📽</span><span class="tx">Proyector</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">♟️</span><span class="tx">Juegos de mesa para adultos</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📱</span><span class="tx">Tarjeta de invitación digital</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏆</span><span class="tx">Juego del Aljibe con sorpresa</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🥇</span><span class="tx">Insignia para el homenajeado/a</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎴</span><span class="tx">Cartas coleccionables del Bosque</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎁</span><span class="tx">Souvenirs para los invitados</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📸</span><span class="tx">Material fotográfico y video</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr class="cmpb-sec"><td colspan="3">🍽 Consumición</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🍗</span><span class="tx">Comida y bebida de los niños</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">☕</span><span class="tx">Infusiones adultos (café, té, mate)</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">👨‍🍳</span><span class="tx">Servicio de camareros/as</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">❄</span><span class="tx">Refrigeración + calentar comida</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr class="cmpb-sec"><td colspan="3">🏛 Instalaciones y seguridad</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏃</span><span class="tx">Super laberinto</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🤸</span><span class="tx">Mini trampoline park</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🛋</span><span class="tx">Sala blanda</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🕹</span><span class="tx">Máquinas de videojuegos</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">⚽</span><span class="tx">Metegol + mini-tejo</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📺</span><span class="tx">TVs LED · WiFi · climatización</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏥</span><span class="tx">Emergencias médicas</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">♿</span><span class="tx">Baño para movilidad reducida</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      </tbody>
+    </table>
+    <div class="cmpb-legend"><span><span class="cmpb-yes">✓</span> Incluido</span><span><span class="cmpb-no">✗</span> No incluido (se suma aparte)</span></div>
+    <div class="cmpb-foot"><p>💡 En el <b>Presupuesto Básico</b> podés sumar lo que quieras desde <b>"Sumá adicionales y extras"</b> y armar tu festejo a medida.</p></div>
+    <a class="cmpb-wa" onclick="compartirCmpBasico('cumple')">📲 Compartir este cuadro por WhatsApp</a>
+  </div>
   <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-act-c">
     <label class="inc-label" for="inc-act-c">Actividades y servicios <span class="inc-chevron">▼</span></label>
     <div class="inc-body">
       <div class="inc-grid" id="act-full-c">
         <div class="inc-item">🗺 Misiones y juegos por edad</div>
-        <div class="inc-item">🕹 Juegos con participación de adultos (opcional)</div>
         <div class="inc-item">🏆 Juego del Aljibe con sorpresa</div>
         <div class="inc-item">🥇 Insignia para el homenajeado/a</div>
         <div class="inc-item">🎴 Cartas coleccionables del Bosque</div>
@@ -1496,7 +1558,6 @@ input, textarea {
       </div>
       <div class="inc-grid" id="act-basico-c" style="display:none;">
         <div class="inc-item">🗺 Misiones y juegos por edad</div>
-        <div class="inc-item">🕹 Juegos con participación de adultos (opcional)</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
         <div class="inc-item">📽 Proyector</div>
         <div class="inc-item">♟️ Juegos de mesa para adultos</div>
@@ -1715,7 +1776,7 @@ input, textarea {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="dia-9a12" id="d9-man" value="manana" onchange="calc9a12()">
     <label class="opt-label" for="d9-man"><span class="opt-titulo">Promo Desayuno</span><span class="opt-detalle">Finde y feriados · 9:30hs · 2hs de duración</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="dia-9a12" id="d9-bas" value="basico" onchange="calc9a12()">
-    <label class="opt-label" for="d9-bas"><span class="opt-titulo">Presupuesto Básico</span><span class="opt-detalle">Más económico, consultar por fechas disponibles</span></label>
+    <label class="opt-label" for="d9-bas"><span class="opt-titulo">Presupuesto Básico</span><span class="opt-detalle" style="color:#fa6f2c;font-weight:600;">Aplica solo para fechas específicas</span></label>
   </div>
 
   <div class="resultado" id="res-9a12">
@@ -1940,13 +2001,49 @@ input, textarea {
       </div>
     </div>
   </div>
+
+  <div class="cmpb-card" id="cmp-basico-9" style="display:none;">
+    <div class="cmpb-head"><h3>📊 Presupuesto Completo vs. Básico</h3><p>Qué incluye cada uno · lo del Básico se suma aparte</p></div>
+    <table class="cmpb-table">
+      <thead><tr><th>Incluye</th><th class="c cmpb-col1">Completo</th><th class="c cmpb-col2">Básico</th></tr></thead>
+      <tbody>
+      <tr class="cmpb-sec"><td colspan="3">🎪 Actividades y experiencia</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🗺</span><span class="tx">Misiones y juegos por edad</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎪</span><span class="tx">Mini disco con luces</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📽</span><span class="tx">Proyector</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">♟️</span><span class="tx">Juegos de mesa para adultos</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📱</span><span class="tx">Tarjeta de invitación digital</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏆</span><span class="tx">Juego del Aljibe con sorpresa</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🥇</span><span class="tx">Insignia para el homenajeado/a</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎴</span><span class="tx">Cartas coleccionables del Bosque</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎁</span><span class="tx">Souvenirs para los invitados</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📸</span><span class="tx">Material fotográfico y video</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr class="cmpb-sec"><td colspan="3">🍽 Consumición</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🍗</span><span class="tx">Comida y bebida de los niños</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">☕</span><span class="tx">Infusiones adultos (café, té, mate)</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">👨‍🍳</span><span class="tx">Servicio de camareros/as</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">❄</span><span class="tx">Refrigeración + calentar comida</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr class="cmpb-sec"><td colspan="3">🏛 Instalaciones y seguridad</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏃</span><span class="tx">Super laberinto</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🤸</span><span class="tx">Mini trampoline park</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🛋</span><span class="tx">Sala blanda</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🕹</span><span class="tx">Máquinas de videojuegos</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">⚽</span><span class="tx">Metegol + mini-tejo</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📺</span><span class="tx">TVs LED · WiFi · climatización</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏥</span><span class="tx">Emergencias médicas</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">♿</span><span class="tx">Baño para movilidad reducida</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      </tbody>
+    </table>
+    <div class="cmpb-legend"><span><span class="cmpb-yes">✓</span> Incluido</span><span><span class="cmpb-no">✗</span> No incluido (se suma aparte)</span></div>
+    <div class="cmpb-foot"><p>💡 En el <b>Presupuesto Básico</b> podés sumar lo que quieras desde <b>"Sumá adicionales y extras"</b> y armar tu festejo a medida.</p></div>
+    <a class="cmpb-wa" onclick="compartirCmpBasico('9a12')">📲 Compartir este cuadro por WhatsApp</a>
+  </div>
   <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-act-9">
     <label class="inc-label" for="inc-act-9">Actividades y servicios <span class="inc-chevron">▼</span></label>
     <div class="inc-body">
       <div class="inc-grid" id="act-full-9">
         <div class="inc-item">🗺 Misiones y juegos adaptados a la edad</div>
-        <div class="inc-item">🕹 Juegos con adultos (opcional)</div>
         <div class="inc-item">🏆 Juego del Aljibe con sorpresa</div>
         <div class="inc-item">🥇 Insignia para el homenajeado/a</div>
         <div class="inc-item">🎴 Cartas coleccionables del Bosque</div>
@@ -1960,7 +2057,6 @@ input, textarea {
       </div>
       <div class="inc-grid" id="act-basico-9" style="display:none;">
         <div class="inc-item">🗺 Misiones y juegos adaptados a la edad</div>
-        <div class="inc-item">🕹 Juegos con adultos (opcional)</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
         <div class="inc-item">♟️ Juegos de mesa</div>
         <div class="inc-item">🎪 Mini disco</div>
@@ -2162,7 +2258,7 @@ input, textarea {
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="dia-bautismo" id="db-man" value="manana" onchange="calcBautismo()">
     <label class="opt-label" for="db-man"><span class="opt-titulo">Promo Desayuno</span><span class="opt-detalle">Finde y feriados · 9:30hs · 2hs de duración</span></label>
     <input class="opt-input" type="radio" onclick="toggleRadio(this)" name="dia-bautismo" id="db-bas" value="basico" onchange="calcBautismo()">
-    <label class="opt-label" for="db-bas"><span class="opt-titulo">Presupuesto Básico</span><span class="opt-detalle">Más económico, consultar por fechas disponibles</span></label>
+    <label class="opt-label" for="db-bas"><span class="opt-titulo">Presupuesto Básico</span><span class="opt-detalle" style="color:#fa6f2c;font-weight:600;">Aplica solo para fechas específicas</span></label>
   </div>
 
   <div class="resultado" id="res-bautismo">
@@ -2398,13 +2494,48 @@ input, textarea {
       </div>
     </div>
   </div>
+
+  <div class="cmpb-card" id="cmp-basico-b" style="display:none;">
+    <div class="cmpb-head"><h3>📊 Presupuesto Completo vs. Básico</h3><p>Qué incluye cada uno · lo del Básico se suma aparte</p></div>
+    <table class="cmpb-table">
+      <thead><tr><th>Incluye</th><th class="c cmpb-col1">Completo</th><th class="c cmpb-col2">Básico</th></tr></thead>
+      <tbody>
+      <tr class="cmpb-sec"><td colspan="3">🎪 Actividades y experiencia</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🗺</span><span class="tx">Misiones y juegos por edad</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎪</span><span class="tx">Mini disco con luces</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📽</span><span class="tx">Proyector</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">♟️</span><span class="tx">Juegos de mesa para adultos</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📱</span><span class="tx">Tarjeta de invitación digital</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏆</span><span class="tx">Juego del Aljibe con sorpresa</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🥇</span><span class="tx">Insignia para el homenajeado/a</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎴</span><span class="tx">Cartas coleccionables del Bosque</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🎁</span><span class="tx">Souvenirs para los invitados</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Pack bosque</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📸</span><span class="tx">Material fotográfico y video</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr class="cmpb-sec"><td colspan="3">🍽 Consumición</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">☕</span><span class="tx">Infusiones adultos (café, té, mate)</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-no">✗</span><span class="cmpb-no-sub">Opcional</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">👨‍🍳</span><span class="tx">Servicio de camareros/as</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">❄</span><span class="tx">Refrigeración + calentar comida</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr class="cmpb-sec"><td colspan="3">🏛 Instalaciones y seguridad</td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏃</span><span class="tx">Super laberinto</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🤸</span><span class="tx">Mini trampoline park</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🛋</span><span class="tx">Sala blanda</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🕹</span><span class="tx">Máquinas de videojuegos</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">⚽</span><span class="tx">Metegol + mini-tejo</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">📺</span><span class="tx">TVs LED · WiFi · climatización</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">🏥</span><span class="tx">Emergencias médicas</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      <tr><td><div class="cmpb-it"><span class="em">♿</span><span class="tx">Baño para movilidad reducida</span></div></td><td class="c"><span class="cmpb-yes">✓</span></td><td class="c"><span class="cmpb-yes">✓</span></td></tr>
+      </tbody>
+    </table>
+    <div class="cmpb-legend"><span><span class="cmpb-yes">✓</span> Incluido</span><span><span class="cmpb-no">✗</span> No incluido (se suma aparte)</span></div>
+    <div class="cmpb-foot"><p>💡 En el <b>Presupuesto Básico</b> podés sumar lo que quieras desde <b>"Sumá adicionales y extras"</b> y armar tu festejo a medida.</p></div>
+    <a class="cmpb-wa" onclick="compartirCmpBasico('bautismo')">📲 Compartir este cuadro por WhatsApp</a>
+  </div>
   <div class="incluye-card">
     <input class="inc-toggle" type="checkbox" id="inc-act-b">
     <label class="inc-label" for="inc-act-b">Actividades y servicios <span class="inc-chevron">▼</span></label>
     <div class="inc-body">
       <div class="inc-grid" id="act-full-b">
         <div class="inc-item">🗺 Juegos y dinámicas por edad</div>
-        <div class="inc-item">🕹 Juegos con adultos (opcional)</div>
         <div class="inc-item">🏆 Juego del Aljibe con sorpresa</div>
         <div class="inc-item">🥇 Insignia para el homenajeado/a</div>
         <div class="inc-item">🎴 Cartas coleccionables del Bosque</div>
@@ -2418,7 +2549,6 @@ input, textarea {
       </div>
       <div class="inc-grid" id="act-basico-b" style="display:none;">
         <div class="inc-item">🗺 Juegos y dinámicas por edad</div>
-        <div class="inc-item">🕹 Juegos con adultos (opcional)</div>
         <div class="inc-item">📱 Tarjeta de invitación digital</div>
         <div class="inc-item">♟️ Juegos de mesa para adultos</div>
         <div class="inc-item">📽 Proyector</div>
@@ -2809,7 +2939,6 @@ input, textarea {
     <div class="inc-body">
       <div class="inc-grid">
         <div class="inc-item">🗺 Misiones y juegos por edad</div>
-        <div class="inc-item">🕹 Juegos con adultos (opcional)</div>
         <div class="inc-item">🏆 Juego del Aljibe con sorpresa</div>
         <div class="inc-item">🥇 Insignia especial para cada egresadito/a</div>
         <div class="inc-item">🎓 Diploma egresadito/a del Bosque</div>
@@ -3064,14 +3193,25 @@ function goBack() {
 // ── CALCULADORA CUMPLEAÑOS ──
 function precioBasico(mesVal){ return mesVal === "marzo" ? 550000 : 500000; }
 function basicoUI(suf, isBasico){
+  // Actividades y servicios: se oculta en Básico (lo reemplaza el cuadro comparativo)
+  var act=document.getElementById("inc-act-"+suf);
+  if(act){ var ac=act.closest(".incluye-card"); if(ac) ac.style.display=isBasico?"none":""; }
   var full=document.getElementById("act-full-"+suf);
   var bas=document.getElementById("act-basico-"+suf);
-  if(full) full.style.display=isBasico?"none":"grid";
-  if(bas) bas.style.display=isBasico?"grid":"none";
+  if(full) full.style.display="grid";
+  if(bas) bas.style.display="none";
+  // Instalaciones: se oculta en Básico
+  var inst=document.getElementById("inc-inst-"+suf);
+  if(inst){ var ic=inst.closest(".incluye-card"); if(ic) ic.style.display=isBasico?"none":""; }
+  // Consumición incluida: se oculta en Básico
   var com=document.getElementById("inc-com-"+suf);
-  if(com){ var card=com.closest(".incluye-card"); if(card) card.style.display=isBasico?"none":""; }
+  if(com){ var cc=com.closest(".incluye-card"); if(cc) cc.style.display=isBasico?"none":""; }
+  // Adicionales exclusivos del Básico
   var ab=document.getElementById("adic-basico-"+suf);
   if(ab) ab.style.display=isBasico?"block":"none";
+  // Cuadro comparativo (solo en Básico)
+  var cmp=document.getElementById("cmp-basico-"+suf);
+  if(cmp) cmp.style.display=isBasico?"block":"none";
   if(!isBasico){ ["foto","packbosque","consumonino","consumadulto"].forEach(function(k){ var cb=document.getElementById("ch-"+k+"-"+suf); if(cb) cb.checked=false; }); }
 }
 function calcCumple() {
@@ -3083,7 +3223,9 @@ function calcCumple() {
   var sena = 150000;
   var saldo = total - sena;
   document.getElementById("rcc-total").textContent = fmt(total);
-  document.getElementById("rcc-nota").textContent = (dia.value === "basico") ? "Presupuesto básico" : (p.label + " · abonando en efectivo");
+  var notaEl_rcc = document.getElementById("rcc-nota");
+  notaEl_rcc.textContent = (dia.value === "basico") ? "Aplica solo para fechas específicas" : (p.label + " · abonando en efectivo");
+  notaEl_rcc.style.color = (dia.value === "basico") ? "#fa6f2c" : "";
   var antesEl = document.getElementById("rcc-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
     var etiqueta = "⏰ LOW COST · últimas fechas";
@@ -3120,7 +3262,9 @@ function calc9a12() {
   var sena = 150000;
   var saldo = total - sena;
   document.getElementById("r9-total").textContent = fmt(total);
-  document.getElementById("r9-nota").textContent = (dia.value === "basico") ? "Presupuesto básico" : (p.label + " · abonando en efectivo");
+  var notaEl_r9 = document.getElementById("r9-nota");
+  notaEl_r9.textContent = (dia.value === "basico") ? "Aplica solo para fechas específicas" : (p.label + " · abonando en efectivo");
+  notaEl_r9.style.color = (dia.value === "basico") ? "#fa6f2c" : "";
   var antesEl9 = document.getElementById("r9-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
     var etiqueta9 = "⏰ LOW COST · últimas fechas";
@@ -3155,7 +3299,9 @@ function calcBautismo() {
   var sena = 150000;
   var saldo = total - sena;
   document.getElementById("rb-total").textContent = fmt(total);
-  document.getElementById("rb-nota").textContent = (dia.value === "basico") ? "Presupuesto básico" : (p.label + " · abonando en efectivo");
+  var notaEl_rb = document.getElementById("rb-nota");
+  notaEl_rb.textContent = (dia.value === "basico") ? "Aplica solo para fechas específicas" : (p.label + " · abonando en efectivo");
+  notaEl_rb.style.color = (dia.value === "basico") ? "#fa6f2c" : "";
   var antesElB = document.getElementById("rb-antes");
   if (p.lowcost && p.antes && p.antes[dia.value] > total) {
     antesElB.innerHTML = "Antes $" + fmt(p.antes[dia.value]) + "<span class='lc-tag'>⏰ LOW COST · últimas fechas</span>";
@@ -3542,6 +3688,31 @@ function detalleAdic(suf, qtyObj, preciosObj) {
     }
   }
   return { lineas: lineas, subtotal: subtotal };
+}
+
+
+// ═══ COMPARTIR CUADRO COMPARATIVO (BÁSICO) ═══
+function compartirCmpBasico(ev){
+  var nombres={cumple:"Cumpleanos (hasta 8 anos)","9a12":"Cumpleanos 9 a 12 anos",bautismo:"Bautismo / Comunion"};
+  var t="";
+  t+="Zorro, No Te Lo Lleves!\n";
+  t+="Comparativa: Presupuesto COMPLETO vs BASICO\n";
+  if(nombres[ev]) t+="("+nombres[ev]+")\n";
+  t+="\nEN AMBOS PRESUPUESTOS:\n";
+  t+="- Misiones y juegos por edad\n";
+  t+="- Mini disco, proyector y juegos de mesa\n";
+  t+="- Tarjeta de invitacion digital\n";
+  t+="- Camareros/as + refrigeracion de bebidas\n";
+  t+="- Todas las instalaciones (laberinto, trampoline, sala blanda, videojuegos, metegol, TVs, WiFi)\n";
+  t+="- Emergencias medicas + bano accesible\n";
+  t+="\nSOLO EN EL COMPLETO (en el Basico se suma aparte):\n";
+  t+="- Juego del Aljibe + Insignia + Cartas + Souvenirs  ->  Pack del bosque\n";
+  t+="- Material fotografico y video\n";
+  if(ev!=="bautismo") t+="- Comida y bebida de los ninos\n";
+  t+="- Infusiones para adultos (cafe, te, mate)\n";
+  t+="\nCon el Presupuesto Basico armas tu festejo a medida sumando solo lo que quieras.\n";
+  t+="presupuestos.zorronotelolleves.com";
+  window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
 }
 
 
